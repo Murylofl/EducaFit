@@ -1,0 +1,59 @@
+#tudo{
+    display: flex;
+    gap: 30px;
+}
+input {
+    width: 280px;
+    height: 48px;
+    border-radius: 9px;
+    font-size: 20px;
+
+}
+
+.pcadastro {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    color: #A6368A;
+    display: flex;
+    justify-content: center;
+  }
+
+.cadastrarse{
+    width: 280px;
+    height: 48px;
+    border-radius: 9px;
+    background-color: #1B326D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cadastrarse a{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    color: #ffffff;
+}
+
+.conteudo{
+
+    width: 100%;
+    border-radius: 12px;
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:16px;
+}
+.svg{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+}
+.svg img{
+    width: 190px;
+}
