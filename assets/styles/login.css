@@ -1,0 +1,55 @@
+input {
+    width: 280px;
+    height: 48px;
+    border-radius: 9px;
+    font-size: 20px;
+
+}
+
+.plogin {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    color: #A6368A;
+    display: flex;
+    justify-content: center;
+  }
+
+.login{
+    width: 280px;
+    height: 48px;
+    border-radius: 9px;
+    background-color: #1B326D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login a{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    color: #ffffff;
+}
+
+.conteudo{
+    width: 365px;
+    height: 266px;
+    border-radius: 12px;
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:16px;
+}
+.svg{
+    width: 100vw;
+    display: flex;
+    justify-content: right;
+}
+.svg img{
+    width: 100vw;
+    height: 494px;
+}
