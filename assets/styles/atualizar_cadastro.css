@@ -90,7 +90,7 @@ input {
     justify-content: center;
     align-items: center;
 }
-.cadastrarse a{
+.cadastrarse p{
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: 900;
@@ -107,3 +107,4 @@ input {
     position: fixed;
     bottom: 0;
 }
+
