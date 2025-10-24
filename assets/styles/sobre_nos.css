@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -46,8 +46,8 @@ header {
   width: 107px;
 }
 .gym {
-  width: 90px;
-  height: 54px;
+  width: 125px;
+  height: 122px;
 }
 .caixa {
   width: 100vw;
