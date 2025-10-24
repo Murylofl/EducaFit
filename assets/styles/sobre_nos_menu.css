@@ -1,87 +1,86 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-#tudo{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
+#tudo {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-}
-
-.cabecalho{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-#direita{
-    display: flex;
-    flex-direction: row;
-}
-.seta{
-    position: fixed;
-    width: 52px;
-    left: 30px;
-    top: 30px;
-}
-.logos{
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: row;
-height: 172px;
-}
-.app{
-    width: 107px;
-}
-.gym{
-    width: 90px;
-    height: 54px;
-}
-.caixa{
-    width: 100vw;
-    background: white;
-    border-radius: 81px 81px 0px 0px;
-    box-shadow: 0px -4px 30px 0px rgba(0,0,0,1);
-    -webkit-box-shadow: 0px -4px 30px 0px rgba(0,0,0,1);
-    -moz-box-shadow: 0px -4px 30px 0px rgba(0,0,0,1);
-
-}
-.conteudo{
-    margin: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.titulo p{
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-size: 20px;
-    font-weight: 900;
-    font-style: normal;
-    color: #A6368A;
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
 }
 
-.texto p{
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-size: 24px;
-    font-weight: 900;
-    font-style: normal;
-    color: #1B326D;
+.cabecalho {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
-a{
-    text-decoration: none;
+#direita {
+  display: flex;
+  flex-direction: row;
+}
+.seta {
+  position: fixed;
+  width: 52px;
+  left: 30px;
+  top: 30px;
+}
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 172px;
+}
+.app {
+  width: 107px;
+}
+.gym {
+  width: 125px;
+  height: 122px;
+}
+.caixa {
+  width: 100vw;
+  background: white;
+  border-radius: 81px 81px 0px 0px;
+  box-shadow: 0px -4px 30px 0px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 0px -4px 30px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px -4px 30px 0px rgba(0, 0, 0, 1);
+}
+.conteudo {
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.titulo p {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 20px;
+  font-weight: 900;
+  font-style: normal;
+  color: #a6368a;
+}
+
+.texto p {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 24px;
+  font-weight: 900;
+  font-style: normal;
+  color: #1b326d;
+}
+a {
+  text-decoration: none;
 }
