@@ -1,1 +1,1 @@
-console.log(sessionStorage.getItem("verificacao"));
+let verificacao = sessionStorage.getItem("verificacao");
