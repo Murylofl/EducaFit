@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   box-sizing: border-box;
   padding: 0;
@@ -117,8 +117,11 @@
 a {
   text-decoration: none;
 }
-.frequencia{
-  gap:10px;
-  display:flex;
-  flex-direction:row
+.frequencia {
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+}
+#certo {
+  display: none;
 }
