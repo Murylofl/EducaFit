@@ -65,10 +65,10 @@ addEventListener("DOMContentLoaded", () => {
     console.log(regex.test(texto));
     if (regex.test(texto)) {
       const verificar = "certo";
-      sessionStorage.setItem("verificacao", verificar);
+      localStorage.setItem("verificacao", verificar);
     } else {
       const verificar = "errado";
-      sessionStorage.setItem("verificacao", verificar);
+      localStorage.setItem("verificacao", verificar);
     }
   }
 });
