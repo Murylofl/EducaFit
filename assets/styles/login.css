@@ -1,55 +1,64 @@
-input{
-    width: 280px;
-    height: 48px;
-    border-radius: 9px;
-    font-size: 20px;
-
+input {
+  width: 280px;
+  height: 48px;
+  border-radius: 9px;
+  font-size: 20px;
 }
 
 .plogin {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 900;
-    font-style: normal;
-    color: #A6368A;
-    display: flex;
-    justify-content: center;
-  }
-
-.login{
-    width: 280px;
-    height: 48px;
-    border-radius: 9px;
-    background-color: #1B326D;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.login a{
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 900;
-    font-style: normal;
-    color: #ffffff;
+  margin-top: 20px;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  color: #a6368a;
+  display: flex;
+  justify-content: center;
 }
 
-.conteudo{
-    width: 365px;
-    height: 266px;
-    border-radius: 12px;
-    background-color: #F5F5F5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap:16px;
+.login {
+  width: 280px;
+  height: 48px;
+  border-radius: 9px;
+  background-color: #1b326d;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  color: white;
+  text-decoration: none;
 }
-.svg{
-    width: 100vw;
-    display: flex;
-    justify-content: right;
+
+.conteudo {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 365px;
+  height: 266px;
+  flex-direction: column;
+  margin-top: 20px;
 }
-.svg img{
-    width: 100vw;
-    height: 494px;
+form {
+  width: 365px;
+  height: 266px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+.svg {
+  width: 100vw;
+  display: flex;
+  justify-content: right;
+}
+.svg img {
+  width: 100vw;
+  height: 494px;
 }

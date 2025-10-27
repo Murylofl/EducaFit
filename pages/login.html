@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EducaFit</title>
-    <link rel="stylesheet" href="../assets/styles/login.css">
-    <link rel="stylesheet" href="../assets/styles/padrao.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div id="tudo" >
-        <header>
-            <div class="cabecalho_padrao">
-                <a href="./inicial.html" class="seta_padrao">
-                    <img src="../assets/images/arrow-left-solid-full.svg" alt="">
-                </a>
-                <div class="direita_padrao">        
-                    <figure class="logos">
-                        <img class="app" src="../assets/images/image.png" alt="">
-                    </figure>
-                    <div id="linha"> </div>
-                    <figure class="logos">
-                        <img class="gym" src="../assets/images/svg-logo-academia.svg" alt="">
-                    </figure>
-                </div>
-            </div>
-        </header>
-        <div class="atras_do_cabecalho"></div>
-        <main class="conteudo">
-            <p class="plogin">LOGIN</p>
-                <input placeholder="Matrícula:" type="text" name="" id="">
-           
+    <link rel="stylesheet" href="../assets/styles/login.css" />
+    <link rel="stylesheet" href="../assets/styles/padrao.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="../assets/scripts/login.js" defer></script>
+  </head>
+  <body>
+    <div id="tudo">
+      <header>
+        <div class="cabecalho_padrao">
+          <a href="./inicial.html" class="seta_padrao">
+            <img src="../assets/images/arrow-left-solid-full.svg" alt="" />
+          </a>
+          <div class="direita_padrao">
+            <figure class="logos">
+              <img class="app" src="../assets/images/image.png" alt="" />
+            </figure>
+            <div id="linha"></div>
+            <figure class="logos">
+              <img
+                class="gym"
+                src="../assets/images/svg-logo-academia.svg"
+                alt=""
+              />
+            </figure>
+          </div>
+        </div>
+      </header>
+      <div class="atras_do_cabecalho"></div>
+      <main class="conteudo">
+        <p class="plogin">LOGIN</p>
+        <form action="">
+          <input placeholder="Matrícula:" type="text" id="matricula" />
 
-                <input placeholder="Senhas:" type="text" name="" id="">
+          <input placeholder="Senha:" type="password" id="senha" />
 
-
-            <div class="login">
-                <a href="./principal.html">LOGIN</a>
-            </div>
-        </main>
-        <figure class="svg">
-            <img src="../assets/images/Group 45.svg" alt="">
-        </figure>
+          <button class="login">LOGIN</button>
+        </form>
+      </main>
+      <figure class="svg">
+        <img src="../assets/images/Group 45.svg" alt="" />
+      </figure>
     </div>
-
-</body>
+  </body>
 </html>
