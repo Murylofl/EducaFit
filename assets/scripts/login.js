@@ -15,7 +15,6 @@ document.querySelector("form").addEventListener("submit", (e) => {
     body: `{matricula:${matricula},senha:${senha}}`,
   }).then((res) => {
     if (res.ok) {
-      alert("sucesso");
       window.location.href = "/pages/principal.html";
     } else {
       alert("Algo eatá errado!");
