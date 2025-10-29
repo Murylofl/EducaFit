@@ -8,24 +8,31 @@ server.get("/alunos", async (req, res) => {
   const alunos = await db.aluno.findMany();
   res.json(alunos);
 });
-
+server.post("/login/:matricula/:senha:", async (req, res) => {
+  const alunos = await db.aluno.find({
+    where: { matricula: req.body.matricula, senha: req.body.matricula },
+    res.status(200).end(),
+  });
+});
 server.post("/alunos", async (req, res) => {
   const {
-    nome,
-    sobrenome,
-    data_de_nascimento,
-    email,
+    nomeCompleto,
+    dataDeNascimento,
+    eMail,
     telefone,
-    matricula_do_aluno,
+    frequencia,
+    matricula,
+    senha,
   } = req.body;
   await db.aluno.create({
     data: {
-      nome,
-      sobrenome,
-      data_de_nascimento,
-      email,
+      nomeCompleto,
+      dataDeNascimento,
+      eMail,
       telefone,
-      matricula_do_aluno,
+      frequencia,
+      matricula,
+      senha,
     },
   });
 
