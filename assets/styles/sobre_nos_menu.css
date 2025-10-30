@@ -30,6 +30,11 @@ header {
   flex-direction: row;
 }
 .seta {
+  box-shadow: -1px 0px 16px 0px rgba(0, 0, 0, 0.84);
+  -webkit-box-shadow: -1px 0px 16px 0px rgba(0, 0, 0, 0.84);
+  -moz-box-shadow: -1px 0px 16px 0px rgba(0, 0, 0, 0.84);
+  background: white;
+  border-radius: 100%;
   position: fixed;
   width: 52px;
   left: 30px;
@@ -74,13 +79,11 @@ header {
 }
 
 .texto p {
+  text-align: justify;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-size: 24px;
   font-weight: 900;
   font-style: normal;
   color: #1b326d;
-}
-a {
-  text-decoration: none;
 }
