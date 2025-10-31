@@ -5,16 +5,19 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node --watch index.js"
+    "start": "node --watch src/index.js"
   },
   "keywords": [],
   "author": "Ives van Hoorne",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^24.9.1",
-    "prisma": "^6.18.0"
+    "@types/node": "^24.9.2",
+    "prisma": "^6.18.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@prisma/client": "^6.18.0"
+    "@prisma/client": "^6.18.0",
+    "express": "^5.1.0"
   }
 }
