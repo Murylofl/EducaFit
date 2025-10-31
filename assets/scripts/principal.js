@@ -72,3 +72,6 @@ addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
+const totalAlunos = await prisma.aluno.count();
+console.log(totalAlunos);
