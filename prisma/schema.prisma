@@ -13,19 +13,12 @@ datasource db {
 
 model Aluno {
   id                 Int          @id @default(autoincrement())
-  nome               String
-  sobrenome          String
-  data_de_nascimento String
-  email              String       @unique
-  telefone           String
-  matricula_do_aluno String       @unique
-  Frequencia         Frequencia[]
+  nomeCompleto       String
+  dataDeNasciment    String
+  eMail              String
+  telefone           String       @unique
+  senha              String
+  matricula          String       @unique
+  frequencia         Boolean
 }    
 
-model Frequencia {
-  id                 Int     @id @default(autoincrement())
-  aluno_id           Int
-  aluno              Aluno   @relation(fields: [aluno_id], references: [id])
-  frequencia_confere Boolean
-  endereco_arquivo   String
-}
