@@ -7,17 +7,20 @@ document.querySelector("form").addEventListener("submit", (e) => {
     return;
   }
 
-  fetch("/api/login", {
+  fetch("https://s3ddht-3000.csb.app/api/login", {
     method: "post",
     headers: {
       "Content-Type": "application/json",
     },
-    body: `{matricula:${matricula},senha:${senha}}`,
-  }).then((res) => {
+    body: JSON.stringify({ matricula, senha }),
+  }).then(async (res) => {
     if (res.ok) {
+      const { token } = await res.json();
+      sessionStorage.setItem("token", token);
+
       window.location.href = "/pages/principal.html";
     } else {
-      alert("Algo eatá errado!");
+      alert("Algo está errado!");
     }
   });
 });
