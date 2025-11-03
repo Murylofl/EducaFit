@@ -1,20 +1,54 @@
 const express = require("express");
+const cors = require("cors");
+const jwt = require("jsonwebtoken");
 const { db } = require("./db");
+
+const SECRET =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30";
+
+function autenticar(req, res, next) {
+  const token = req.header("Authenticate")?.split("Bearer ")[1];
+
+  if (!token) {
+    res.status(401).json({ erro: "Token de acesso nescessário" });
+    return;
+  }
+
+  try {
+    const decodificado = jwt.verify(token, SECRET);
+    req.decodificado = decodificado;
+    next();
+  } catch (err) {
+    res.status(401).json({ erro: "Token invalido" });
+  }
+}
 
 const server = express();
 
+server.use(cors());
 server.use(express.json());
 
 server.get("/alunos", async (req, res) => {
   const alunos = await db.aluno.findMany();
   res.json(alunos);
 });
-server.post("/login/:matricula/:senha", async (req, res) => {
-  const alunos = await db.aluno.find({
-    where: { matricula: req.body.matricula, senha: req.body.matricula },
+
+server.post("/api/login", async (req, res) => {
+  const { matricula, senha } = req.body;
+
+  const aluno = await db.aluno.findFirst({
+    where: { matricula, senha },
   });
-  res.status(200);
+
+  if (!aluno) {
+    res.status(400).json({ erro: "suario ou senha invalidos" });
+    return;
+  }
+
+  const token = jwt.sign({ id: aluno.id }, SECRET);
+  res.status(200).json({ token });
 });
+
 server.post("/alunos", async (req, res) => {
   const {
     alunoNome,
@@ -51,4 +85,35 @@ server.put("/alunos/id", async (req, res) => {
   });
 });
 
-server.listen(3001, () => console.log("Rodando"));
+server.post("/api/cadastro", async (req, res) => {
+  console.log(req.body);
+
+  const { nomeCompleto, dataDeNasciment, eMail, telefone, matricula, senha } =
+    req.body;
+  const aluno = await db.aluno.create({
+    data: {
+      nomeCompleto: nomeCompleto,
+      dataDeNasciment: dataDeNasciment,
+      eMail: eMail,
+      telefone: telefone,
+      frequencia: false,
+      matricula: matricula,
+      senha: senha,
+    },
+  });
+
+  res.json({ ok: "oi" });
+});
+
+server.get("/api/aluno", autenticar, async (req, res) => {
+  const id = req.decodificado.id;
+
+  const aluno = await db.aluno.findUnique({
+    where: {
+      id,
+    },
+  });
+  res.json(aluno);
+});
+
+server.listen(3000, () => console.log("Rodando"));
