@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   box-sizing: border-box;
   padding: 0;
@@ -146,6 +146,15 @@ header {
   font-size: 24px;
   font-weight: 700;
   color: white;
+}
+
+#texto_participante {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 20px;
+  font-weight: 900;
+  font-style: normal;
+  color: #1b326d;
 }
 .maps {
   padding-top: 30px;
