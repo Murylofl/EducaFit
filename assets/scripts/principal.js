@@ -66,11 +66,18 @@ addEventListener("DOMContentLoaded", () => {
     if (regex.test(texto)) {
       const verificar = "certo";
       localStorage.setItem("verificacao", verificar);
+      fetch("https://s3ddht-3000.csb.app/api/alunos/frequencia/certo/" +, {...}).then(async (res) => {
+
+      })
     } else {
       const verificar = "errado";
       localStorage.setItem("verificacao", verificar);
+      fetch("https://s3ddht-3000.csb.app/api/alunos/frequencia/errado/:id", {...}).then(async (res) => {
+
+      })
     }
   }
+  //adicionar no banco
 });
 
 const totalAlunos = await prisma.aluno.count();

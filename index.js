@@ -33,6 +33,29 @@ server.get("/alunos", async (req, res) => {
   res.json(alunos);
 });
 
+server.put("/alunos/frequencia/certo/:id", async (req, res) => {
+  const alunoAtualizado = await prisma.aluno.update({
+    where: {
+      where: { id: req.params.id },
+    },
+    data: {
+      frequencia: true,
+    },
+  });
+  res.json(200);
+});
+server.put("/alunos/frequencia/errado/:id", async (req, res) => {
+  const alunoAtualizado = await prisma.aluno.update({
+    where: {
+      where: { id: req.params.id },
+    },
+    data: {
+      frequencia: false,
+    },
+  });
+  res.json(200);
+});
+
 server.post("/api/login", async (req, res) => {
   const { matricula, senha } = req.body;
 
