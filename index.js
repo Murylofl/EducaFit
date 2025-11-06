@@ -26,6 +26,7 @@ function autenticar(req, res, next) {
 const server = express();
 
 server.use(cors());
+server.use(express.static("public"));
 server.use(express.json());
 
 server.get("/alunos", async (req, res) => {
@@ -33,27 +34,19 @@ server.get("/alunos", async (req, res) => {
   res.json(alunos);
 });
 
-server.put("/alunos/frequencia/certo/:id", async (req, res) => {
+server.put("/apialunos/frequencia", autenticar, async (req, res) => {
+  const id = req.decodificado.id;
+  const frequencia = req.body.frequencia;
+
   const alunoAtualizado = await prisma.aluno.update({
     where: {
-      where: { id: req.params.id },
+      where: { id },
     },
     data: {
-      frequencia: true,
+      frequencia,
     },
   });
-  res.json(200);
-});
-server.put("/alunos/frequencia/errado/:id", async (req, res) => {
-  const alunoAtualizado = await prisma.aluno.update({
-    where: {
-      where: { id: req.params.id },
-    },
-    data: {
-      frequencia: false,
-    },
-  });
-  res.json(200);
+  res.status(202).json({ mensagem: "sucesso" });
 });
 
 server.post("/api/login", async (req, res) => {
@@ -64,7 +57,7 @@ server.post("/api/login", async (req, res) => {
   });
 
   if (!aluno) {
-    res.status(400).json({ erro: "suario ou senha invalidos" });
+    res.status(400).json({ erro: "usuário ou senha invalidos" });
     return;
   }
 
@@ -100,12 +93,27 @@ server.delete("/alunos/:id", async (req, res) => {
     where: { id },
   });
 });
-server.put("/alunos/id", async (req, res) => {
-  await db.aluno.update({
-    where: { id: req.params.id },
-    email: "",
-    telefone: "",
+
+server.put("/api/alunos", autenticar, async (req, res) => {
+  const { nomeCompleto, eMail, telefone, senha, novaSenha } = req.body;
+
+  const aluno = await db.aluno.findUnique({
+    where: { id: req.decodificado.id },
   });
+  if (senha != aluno.senha) {
+    res.status(400).send("senha invalida");
+    return;
+  }
+  await db.aluno.update({
+    where: { id: req.decodificado.id },
+    data: {
+      eMail,
+      nomeCompleto,
+      telefone,
+      senha: novaSenha,
+    },
+  });
+  res.status(200).send("cadastro alterado!");
 });
 
 server.post("/api/cadastro", async (req, res) => {
@@ -137,6 +145,39 @@ server.get("/api/aluno", autenticar, async (req, res) => {
     },
   });
   res.json(aluno);
+});
+
+server.get("/inicial", (req, res) => {
+  res.sendFile(__dirname + "/pages/inicial.html");
+});
+
+server.get("/login", (req, res) => {
+  res.sendFile(__dirname + "/pages/login.html");
+});
+server.get("/cadastro", (req, res) => {
+  res.sendFile(__dirname + "/pages/cadastro.html");
+});
+server.get("/sobre-nos", (req, res) => {
+  res.sendFile(__dirname + "/pages/sobre-nos.html");
+});
+
+server.get("/principal", (req, res) => {
+  res.sendFile(__dirname + "/pages/principal.html");
+});
+server.get("/menu-lateral", (req, res) => {
+  res.sendFile(__dirname + "/pages/menu-lateral.html");
+});
+server.get("/sobre-nos-menu", (req, res) => {
+  res.sendFile(__dirname + "/pages/sobre-nos-menu.html");
+});
+server.get("/atualizar-cadastro", (req, res) => {
+  res.sendFile(__dirname + "/pages/atualizar-cadastro.html");
+});
+server.get("/desabilitar-cadastro", (req, res) => {
+  res.sendFile(__dirname + "/pages/desabilitar-cadastro.html");
+});
+server.get("/conta", (req, res) => {
+  res.sendFile(__dirname + "/pages/conta.html");
 });
 
 server.listen(3000, () => console.log("Rodando"));
