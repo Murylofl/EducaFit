@@ -30,7 +30,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
     }),
   }).then(async (res) => {
     if (res.ok) {
-      window.location.href = "/pages/principal.html";
+      window.location.href = "/principal";
     } else {
       console.log(res);
       console.log(await res.text());

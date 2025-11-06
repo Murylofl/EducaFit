@@ -18,7 +18,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
       const { token } = await res.json();
       sessionStorage.setItem("token", token);
 
-      window.location.href = "/pages/principal.html";
+      window.location.href = "/principal";
     } else {
       alert("Algo está errado!");
     }

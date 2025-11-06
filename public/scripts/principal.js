@@ -64,20 +64,25 @@ addEventListener("DOMContentLoaded", () => {
     const regex = /está frequentando/i;
     console.log(regex.test(texto));
     if (regex.test(texto)) {
-      const verificar = "certo";
-      localStorage.setItem("verificacao", verificar);
-      fetch("https://s3ddht-3000.csb.app/api/alunos/frequencia/certo/" +, {...}).then(async (res) => {
-
-      })
+      fetch("/api/alunos/frequencia", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authenticate: "Bearer " + sessionStorage.getItem("token"),
+        },
+        body: '"frequencia": true',
+      });
     } else {
-      const verificar = "errado";
-      localStorage.setItem("verificacao", verificar);
-      fetch("https://s3ddht-3000.csb.app/api/alunos/frequencia/errado/:id", {...}).then(async (res) => {
-
-      })
+      fetch("/api/alunos/frequencia", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authenticate: "Bearer " + sessionStorage.getItem("token"),
+        },
+        body: '"frequencia": false',
+      });
     }
   }
-  //adicionar no banco
 });
 
 const totalAlunos = await prisma.aluno.count();
