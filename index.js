@@ -77,12 +77,26 @@ server.delete("/alunos/:id", async (req, res) => {
     where: { id },
   });
 });
-server.put("/alunos/id", async (req, res) => {
-  await db.aluno.update({
-    where: { id: req.params.id },
-    email: "",
-    telefone: "",
+server.put("/api/alunos", autenticar, async (req, res) => {
+  const { nomeCompleto, eMail, telefone, senha, novaSenha } = req.body;
+
+  const aluno = await db.aluno.findUnique({
+    where: { id: req.decodificado.id },
   });
+  if (senha != aluno.senha) {
+    res.status(400).send("senha invalida");
+    return;
+  }
+  await db.aluno.update({
+    where: { id: req.decodificado.id },
+    data: {
+      eMail,
+      nomeCompleto,
+      telefone,
+      senha: novaSenha,
+    },
+  });
+  res.status(200).send("cadastro alterado!");
 });
 
 server.post("/api/cadastro", async (req, res) => {
