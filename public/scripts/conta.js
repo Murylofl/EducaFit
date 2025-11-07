@@ -1,4 +1,4 @@
-fetch("https://8hrchg-3000.csb.app/api/aluno", {
+fetch("https://s3ddht-3000.csb.app/api/aluno", {
   headers: {
     Authenticate: "Bearer " + sessionStorage.getItem("token"),
   },
