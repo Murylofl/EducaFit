@@ -178,5 +178,8 @@ server.get("/desabilitar-cadastro", (req, res) => {
 server.get("/conta", (req, res) => {
   res.sendFile(__dirname + "/pages/conta.html");
 });
+server.get("/", (req, res) => {
+  res.sendFile(__dirname + "/pages/inicial.html");
+});
 
 server.listen(3000, () => console.log("Rodando"));
