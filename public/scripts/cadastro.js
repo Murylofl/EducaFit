@@ -15,7 +15,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
     matricula,
   });
 
-  fetch("https://s3ddht-3000.csb.app/api/cadastro", {
+  fetch("https://8hrchg-3000.csb.app/api/cadastro", {
     method: "post",
     headers: {
       "Content-Type": "application/json",
@@ -30,6 +30,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
     }),
   }).then(async (res) => {
     if (res.ok) {
+      console.log("deu certo!!");
       window.location.href = "/principal";
     } else {
       console.log(res);
