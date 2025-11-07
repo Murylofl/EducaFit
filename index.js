@@ -93,7 +93,6 @@ server.delete("/alunos/:id", async (req, res) => {
     where: { id },
   });
 });
-
 server.put("/api/alunos", autenticar, async (req, res) => {
   const { nomeCompleto, eMail, telefone, senha, novaSenha } = req.body;
 

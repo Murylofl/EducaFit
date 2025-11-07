@@ -13,3 +13,6 @@ fetch("https://s3ddht-3000.csb.app/api/aluno", {
   document.getElementById("telefone").innerText = dados.telefone;
   document.getElementById("email").innerText = dados.eMail;
 });
+
+
+
