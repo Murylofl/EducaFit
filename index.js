@@ -34,6 +34,11 @@ server.get("/alunos", async (req, res) => {
   res.json(alunos);
 });
 
+server.get("/contagem", async (req, res) => {
+  const alunos = await db.aluno.count();
+  res.json(alunos);
+});
+
 server.put("/apialunos/frequencia", autenticar, async (req, res) => {
   const id = req.decodificado.id;
   const frequencia = req.body.frequencia;
@@ -132,7 +137,8 @@ server.post("/api/cadastro", async (req, res) => {
     },
   });
 
-  res.json({ ok: "oi" });
+  const token = jwt.sign({ id: aluno.id }, SECRET);
+  res.status(200).json({ token });
 });
 
 server.get("/api/aluno", autenticar, async (req, res) => {
