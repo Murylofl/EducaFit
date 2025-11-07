@@ -21,7 +21,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
   let senha = document.getElementById("senha").value;
   let novaSenha = document.getElementById("novaSenha").value;
 
-  fetch("https://s3ddht-3000.csb.app/api/alunos/", {
+  fetch("https://8hrchg-3000.csb.app/alunos/", {
     method: "put",
     headers: {
       "Content-Type": "application/json",
