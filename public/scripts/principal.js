@@ -84,6 +84,11 @@ addEventListener("DOMContentLoaded", () => {
     }
   }
 });
-
+fetch("https://8hrchg-3000.csb.app/contagem", {
+  method: "put",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 const totalAlunos = await prisma.aluno.count();
 console.log(totalAlunos);
