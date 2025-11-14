@@ -56,3 +56,30 @@ form {
 .svg img {
   width: 240px;
 }
+
+.modal {
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  background-color: #575757;
+  border: 6px solid black;
+  color: rgb(0, 0, 0);
+  padding: 30px;
+}
+
+.back-modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  opacity: 0.8;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.disable {
+  display: none;
+}
