@@ -34,18 +34,27 @@ server.get("/alunos", async (req, res) => {
   res.json(alunos);
 });
 
+server.get("/alunos/:id", autenticar, async (req, res) => {
+  const aluno = await db.aluno.findUnique({
+    where: {
+      id: Number(req.decodificado.id),
+    },
+  });
+  res.json(aluno);
+});
+
 server.get("/contagem", async (req, res) => {
   const alunos = await db.aluno.count();
   res.json(alunos);
 });
 
-server.put("/apialunos/frequencia", autenticar, async (req, res) => {
+server.put("/api/alunos/frequencia", autenticar, async (req, res) => {
   const id = req.decodificado.id;
   const frequencia = req.body.frequencia;
 
-  const alunoAtualizado = await prisma.aluno.update({
+  const alunoAtualizado = await db.aluno.update({
     where: {
-      where: { id },
+      id,
     },
     data: {
       frequencia,
@@ -54,6 +63,11 @@ server.put("/apialunos/frequencia", autenticar, async (req, res) => {
   res.status(202).json({ mensagem: "sucesso" });
 });
 
+server.delete("/alunos/:id", autenticar, async (req, res) => {
+  await db.aluno.delete({
+    where: { id: req.decodificado.id },
+  });
+});
 server.post("/api/login", async (req, res) => {
   const { matricula, senha } = req.body;
 
@@ -92,12 +106,6 @@ server.post("/alunos", async (req, res) => {
   });
 });
 
-server.delete("/alunos/:id", async (req, res) => {
-  const id = Number(req.params.id);
-  await db.aluno.delete({
-    where: { id },
-  });
-});
 server.put("/api/alunos", autenticar, async (req, res) => {
   const { nomeCompleto, eMail, telefone, senha, novaSenha } = req.body;
 
