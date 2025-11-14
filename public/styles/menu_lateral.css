@@ -125,3 +125,12 @@ a {
 #certo {
   display: none;
 }
+.link {
+  display: flex;
+
+  flex-direction: row;
+  background: #2c81ff94;
+}
+.link p {
+  color: white;
+}
