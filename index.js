@@ -202,4 +202,4 @@ server.get("/", (req, res) => {
   res.sendFile(__dirname + "/pages/inicial.html");
 });
 
-server.listen(3000, () => console.log("Rodando"));
+server.listen(3001, () => console.log("Rodando"));

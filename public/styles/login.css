@@ -63,3 +63,45 @@ form {
   width: 100vw;
   height: 494px;
 }
+
+.modal {
+  width: 377px;
+  height: 230px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  border: 6px solid black;
+  color: rgb(0, 0, 0);
+  padding: 30px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-direction: column;
+}
+.modal h1 {
+  color: #ff0000;
+}
+.modal p {
+  color: #1b326d;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-size: 20px;
+  font-style: normal;
+}
+
+.back-modal {
+  width: 100vw;
+  height: 1531px;
+  position: fixed;
+  margin-bottom: 16%;
+  background-color: #1b326d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.disable {
+  display: none;
+}
