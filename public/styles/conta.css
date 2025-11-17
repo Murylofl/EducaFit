@@ -73,12 +73,32 @@ header {
   padding-bottom: 23px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   width: 95%;
   height: fit-content;
   gap: 20px;
   padding-left: 20px;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 20px;
+}
+
+#entrar {
+  background-color: #1b326d;
+  height: 39px;
+  border-radius: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 20px;
 }
 .caixa {
   position: absolute;
