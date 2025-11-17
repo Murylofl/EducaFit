@@ -41,7 +41,16 @@
 
           <input placeholder="Senha:" type="password" id="senha" />
 
-          <button class="login">LOGIN</button>
+          <button class="login" onclick="showModal()">LOGIN</button>
+          <div class="back-modal disable" onclick="closeModal()">
+            <div class="modal">
+              <h1>Informações faltando!</h1>
+              <p>
+                Ainda há campos obrigatórios sem preencher. Complete-os para
+                continuar
+              </p>
+            </div>
+          </div>
         </form>
       </main>
       <figure class="svg">

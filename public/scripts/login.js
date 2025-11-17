@@ -19,8 +19,15 @@ document.querySelector("form").addEventListener("submit", (e) => {
       sessionStorage.setItem("token", token);
 
       window.location.href = "/principal";
-    } else {
-      alert("Algo está errado!");
     }
   });
 });
+function closeModal() {
+  let modal = document.querySelector(".back-modal");
+  modal.classList.add("disable");
+}
+
+function showModal() {
+  let modal = document.querySelector(".back-modal");
+  modal.classList.remove("disable");
+}
