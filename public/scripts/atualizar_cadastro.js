@@ -1,6 +1,6 @@
 const senhaAntiga = senha;
 
-fetch("https://s3ddht-3000.csb.app/api/aluno", {
+fetch("/api/aluno", {
   headers: {
     Authenticate: "Bearer " + sessionStorage.getItem("token"),
   },
@@ -21,7 +21,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
   let senha = document.getElementById("senha").value;
   let novaSenha = document.getElementById("novaSenha").value;
 
-  fetch("https://8hrchg-3000.csb.app/alunos/", {
+  fetch("/alunos/", {
     method: "put",
     headers: {
       "Content-Type": "application/json",
