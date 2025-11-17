@@ -1,4 +1,9 @@
 addEventListener("DOMContentLoaded", () => {
+  fetch("/contagem").then(async (res) => {
+    const json = await res.text();
+    document.querySelector(".participantes").innerHTML = `<p>${json}</p>`;
+  });
+
   const fileInput = document.getElementById("file-anexo");
 
   fileInput.addEventListener("change", async (ev) => {
@@ -63,27 +68,13 @@ addEventListener("DOMContentLoaded", () => {
   function validarPdf(texto) {
     const regex = /está frequentando/i;
     console.log(regex.test(texto));
-    if (regex.test(texto)) {
-      fetch("/api/alunos/frequencia", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authenticate: "Bearer " + sessionStorage.getItem("token"),
-        },
-        body: '"frequencia": true',
-      });
-    } else {
-      fetch("/api/alunos/frequencia", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authenticate: "Bearer " + sessionStorage.getItem("token"),
-        },
-        body: '"frequencia": false',
-      });
-    }
+    fetch("/api/alunos/frequencia", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authenticate: "Bearer " + sessionStorage.getItem("token"),
+      },
+      body: JSON.stringify({ frequencia: regex.test(texto) }),
+    });
   }
 });
-
-const totalAlunos = await prisma.aluno.count();
-console.log(totalAlunos);

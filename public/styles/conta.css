@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   box-sizing: border-box;
   padding: 0;
@@ -58,36 +58,31 @@ header {
   width: 100vw;
   height: 143px;
 }
-.cima {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
+.info {
+  text-align: center;
+  font-size: 17px;
   font-weight: 900;
-  font-style: normal;
-  display: flex;
-  justify-content: space-between;
-  gap: 25px;
 }
-.baixo {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 900;
-  font-style: normal;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+.pessoal {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 400;
 }
 .conteudo {
+  padding-top: 23px;
+  padding-bottom: 23px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   width: 95%;
-  height: 258px;
-  gap: 22px;
+  height: fit-content;
+  gap: 20px;
+  padding-left: 20px;
 }
 .caixa {
-  position: fixed;
-  bottom: 33%;
+  position: absolute;
+  bottom: 2%;
   background-color: white;
   border: 1px solid black;
   border-radius: 12px;
