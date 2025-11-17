@@ -7,7 +7,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
     return;
   }
 
-  fetch("https://8hrchg-3000.csb.app/login", {
+  fetch("https://s3ddht-3000.csb.app//login", {
     method: "post",
     headers: {
       "Content-Type": "application/json",
