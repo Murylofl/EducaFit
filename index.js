@@ -112,6 +112,12 @@ server.put("/api/alunos", autenticar, async (req, res) => {
   const aluno = await db.aluno.findUnique({
     where: { id: req.decodificado.id },
   });
+
+  console.log("Req: ");
+  console.log({ nomeCompleto, eMail, telefone, senha, novaSenha });
+  console.log("Aluno: ");
+  console.log(aluno);
+
   if (senha != aluno.senha) {
     res.status(400).send("senha invalida");
     return;
