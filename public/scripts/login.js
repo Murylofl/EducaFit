@@ -1,5 +1,6 @@
 document.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
+  console.log("fazendo login");
   let matricula = document.getElementById("matricula").value;
   let senha = document.getElementById("senha").value;
 
@@ -19,6 +20,8 @@ document.querySelector("form").addEventListener("submit", (e) => {
       sessionStorage.setItem("token", token);
 
       window.location.href = "/principal";
+    } else {
+      showModal();
     }
   });
 });
