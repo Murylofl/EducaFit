@@ -123,5 +123,13 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
+}
+
+input {
+  --ph-color: #333;
+}
+
+input::placeholder {
+  color: var(--ph-color);
 }

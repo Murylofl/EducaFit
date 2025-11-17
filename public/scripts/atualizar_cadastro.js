@@ -1,5 +1,7 @@
 const senhaAntiga = senha;
 
+let senha_atual = "";
+
 fetch("/api/aluno", {
   headers: {
     Authenticate: "Bearer " + sessionStorage.getItem("token"),
@@ -8,6 +10,8 @@ fetch("/api/aluno", {
   const dados = await res.json();
 
   console.log(dados);
+
+  senha_atual = dados.senha;
 
   document.getElementById("nome").value = dados.nomeCompleto;
   document.getElementById("telefone").value = dados.telefone;
@@ -20,11 +24,24 @@ document.querySelector("form").addEventListener("submit", (e) => {
   let telefone = document.getElementById("telefone").value;
   let senha = document.getElementById("senha").value;
   let novaSenha = document.getElementById("novaSenha").value;
-
+  let erros = 0;
+  if (senha != senha_atual) {
+    document.getElementById("senha").style.borderColor = "red";
+    document.getElementById("senha").style.color = "red";
+    document.getElementById("senha").attributes.placeholder.value =
+      "Senha inválida !";
+    erros++;
+  }
   if (novaSenha == "") {
     document.getElementById("novaSenha").style.borderColor = "red";
-    return;
+    document.getElementById("novaSenha").style.setProperty("--ph-color", "red");
+
+    document.getElementById("novaSenha").attributes.placeholder.value =
+      "Digite a nova senha !";
+    erros++;
   }
+
+  if (erros > 0) return;
 
   fetch("/api/alunos/", {
     method: "put",
@@ -41,11 +58,10 @@ document.querySelector("form").addEventListener("submit", (e) => {
     }),
   }).then(async (res) => {
     if (res.ok) {
-      window.location.href = "/inicial";
+      window.location.href = "/conta";
     } else {
       console.log(res);
       console.log(await res.text());
-      alert("Algo está errado!");
     }
   });
 });
