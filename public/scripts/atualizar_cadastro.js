@@ -21,7 +21,12 @@ document.querySelector("form").addEventListener("submit", (e) => {
   let senha = document.getElementById("senha").value;
   let novaSenha = document.getElementById("novaSenha").value;
 
-  fetch("/alunos/", {
+  if (novaSenha == "") {
+    document.getElementById("novaSenha").style.borderColor = "red";
+    return;
+  }
+
+  fetch("/api/alunos/", {
     method: "put",
     headers: {
       "Content-Type": "application/json",
@@ -36,6 +41,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
     }),
   }).then(async (res) => {
     if (res.ok) {
+      window.location.href = "/inicial";
     } else {
       console.log(res);
       console.log(await res.text());
