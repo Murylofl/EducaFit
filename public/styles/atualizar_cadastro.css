@@ -84,8 +84,10 @@ input {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 16px;
+  gap: 0px;
   margin: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .cadastrarse {
@@ -115,4 +117,11 @@ input {
   fill: #1b326d;
   position: fixed;
   bottom: 0;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
 }

@@ -15,7 +15,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
     matricula,
   });
 
-  fetch("https://s3ddht-3000.csb.app/api/cadastro", {
+  fetch("/api/cadastro", {
     method: "post",
     headers: {
       "Content-Type": "application/json",
@@ -36,7 +36,15 @@ document.querySelector("form").addEventListener("submit", (e) => {
     } else {
       console.log(res);
       console.log(await res.text());
-      alert("Algo está errado!");
     }
   });
 });
+function closeModal() {
+  let modal = document.querySelector(".back-modal");
+  modal.classList.add("disable");
+}
+
+function showModal() {
+  let modal = document.querySelector(".back-modal");
+  modal.classList.remove("disable");
+}

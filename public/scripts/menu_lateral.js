@@ -1,13 +1,26 @@
-let verificacao = localStorage.getItem("verificacao");
-if (verificacao == "certo") {
-  document.getElementById("certo").style.display = "block";
-  document.getElementById("errado").style.display = "none";
-} else {
-  document.getElementById("certo").style.display = "none";
-  document.getElementById("errado").style.display = "block";
-}
+let frequencia = false;
+(async () => {
+  const res = await fetch("/alunos/1", {
+    headers: {
+      Authenticate: "Bearer " + sessionStorage.getItem("token"),
+    },
+  });
 
-fetch("https://8hrchg-3000.csb.app/api/aluno", {
+  const json = await res.json();
+
+  console.log(json);
+
+  frequencia = json.frequencia;
+  if (frequencia == true) {
+    document.getElementById("certo").style.display = "block";
+    document.getElementById("errado").style.display = "none";
+  } else {
+    document.getElementById("certo").style.display = "none";
+    document.getElementById("errado").style.display = "block";
+  }
+})();
+
+fetch("/api/aluno", {
   headers: {
     Authenticate: "Bearer " + sessionStorage.getItem("token"),
   },
