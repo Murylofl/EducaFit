@@ -51,7 +51,6 @@ server.get("/contagem", async (req, res) => {
 server.put("/api/alunos/frequencia", autenticar, async (req, res) => {
   const id = req.decodificado.id;
   const frequencia = req.body.frequencia;
-
   const alunoAtualizado = await db.aluno.update({
     where: {
       id,
@@ -70,7 +69,6 @@ server.delete("/alunos/:id", autenticar, async (req, res) => {
 });
 server.post("/api/login", async (req, res) => {
   const { matricula, senha } = req.body;
-
   const aluno = await db.aluno.findFirst({
     where: { matricula, senha },
   });
@@ -108,7 +106,6 @@ server.post("/alunos", async (req, res) => {
 
 server.put("/api/alunos", autenticar, async (req, res) => {
   const { nomeCompleto, eMail, telefone, senha, novaSenha } = req.body;
-
   const aluno = await db.aluno.findUnique({
     where: { id: req.decodificado.id },
   });
