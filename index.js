@@ -51,6 +51,7 @@ server.get("/contagem", async (req, res) => {
 server.put("/api/alunos/frequencia", autenticar, async (req, res) => {
   const id = req.decodificado.id;
   const frequencia = req.body.frequencia;
+  console.log(id);
   const alunoAtualizado = await db.aluno.update({
     where: {
       id,
@@ -64,9 +65,12 @@ server.put("/api/alunos/frequencia", autenticar, async (req, res) => {
 
 server.delete("/alunos", autenticar, async (req, res) => {
   const id = req.decodificado.id;
-  await db.aluno.delete({
+  console.log(id);
+  const aluno = await db.aluno.deleteMany({
     where: { id },
   });
+  console.log(aluno);
+  res.status(202).json({ mensagem: "sucesso" });
 });
 
 server.post("/api/login", async (req, res) => {

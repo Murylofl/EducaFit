@@ -1,9 +1,8 @@
 const token = sessionStorage.getItem("token");
 sessionStorage.removeItem("token");
-
-fetch("api/alunos/", {
+fetch("/api/alunos/", {
+  method: "DELETE",
   headers: {
-    method: "DELETE",
     Authenticate: "Bearer " + token,
   },
 });
