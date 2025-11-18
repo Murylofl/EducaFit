@@ -74,7 +74,7 @@ server.post("/api/login", async (req, res) => {
   const aluno = await db.aluno.findFirst({
     where: { matricula, senha },
   });
-
+  console.log(aluno);
   if (!aluno) {
     res.status(400).json({ erro: "usuário ou senha invalidos" });
     return;
@@ -201,4 +201,4 @@ server.get("/", (req, res) => {
   res.sendFile(__dirname + "/pages/inicial.html");
 });
 
-server.listen(3001, () => console.log("Rodando"));
+server.listen(3000, () => console.log("Rodando"));
