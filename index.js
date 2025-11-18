@@ -62,11 +62,13 @@ server.put("/api/alunos/frequencia", autenticar, async (req, res) => {
   res.status(202).json({ mensagem: "sucesso" });
 });
 
-server.delete("/alunos/:id", autenticar, async (req, res) => {
+server.delete("/alunos", autenticar, async (req, res) => {
+  const id = req.decodificado.id;
   await db.aluno.delete({
-    where: { id: req.decodificado.id },
+    where: { id },
   });
 });
+
 server.post("/api/login", async (req, res) => {
   const { matricula, senha } = req.body;
   const aluno = await db.aluno.findFirst({

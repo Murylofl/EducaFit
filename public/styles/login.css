@@ -3,6 +3,7 @@ input {
   height: 48px;
   border-radius: 9px;
   font-size: 20px;
+  padding-left: 10px;
 }
 
 .plogin {
@@ -104,4 +105,7 @@ form {
 
 .disable {
   display: none;
+}
+input::placeholder {
+  color: var(--ph-color);
 }

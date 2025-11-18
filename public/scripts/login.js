@@ -4,10 +4,6 @@ document.querySelector("form").addEventListener("submit", (e) => {
   let matricula = document.getElementById("matricula").value;
   let senha = document.getElementById("senha").value;
 
-  if (matricula == "" || senha == "") {
-    return;
-  }
-
   fetch("/api/login", {
     method: "post",
     headers: {
@@ -21,16 +17,11 @@ document.querySelector("form").addEventListener("submit", (e) => {
 
       window.location.href = "/principal";
     } else {
-      showModal();
+      document.getElementById("senha").value = "";
+      document.getElementById("senha").style.borderColor = "red";
+      document.getElementById("senha").style.setProperty("--ph-color", "red");
+      document.getElementById("senha").attributes.placeholder.value =
+        "Informação inválida!";
     }
   });
 });
-function closeModal() {
-  let modal = document.querySelector(".back-modal");
-  modal.classList.add("disable");
-}
-
-function showModal() {
-  let modal = document.querySelector(".back-modal");
-  modal.classList.remove("disable");
-}

@@ -25,22 +25,35 @@ document.querySelector("form").addEventListener("submit", (e) => {
   let senha = document.getElementById("senha").value;
   let novaSenha = document.getElementById("novaSenha").value;
   let erros = 0;
-  if (senha != senha_atual) {
+  if (senha != senha_atual && senha != "") {
+    document.getElementById("senha").value = "";
     document.getElementById("senha").style.borderColor = "red";
-    document.getElementById("senha").style.color = "red";
+    document.getElementById("senha").style.setProperty("--ph-color", "red");
     document.getElementById("senha").attributes.placeholder.value =
-      "Senha inválida !";
+      "Informação inválida!";
+
+    erros++;
+  }
+  if (senha == "") {
+    document.getElementById("senha").value = "";
+    document.getElementById("senha").style.borderColor = "red";
+    document.getElementById("senha").style.setProperty("--ph-color", "red");
+    document.getElementById("senha").attributes.placeholder.value =
+      "Digite sua senha!";
+
     erros++;
   }
   if (novaSenha == "") {
     document.getElementById("novaSenha").style.borderColor = "red";
     document.getElementById("novaSenha").style.setProperty("--ph-color", "red");
-
     document.getElementById("novaSenha").attributes.placeholder.value =
-      "Digite a nova senha !";
+      "Digite a nova senha!";
     erros++;
   }
 
+  if (senha == senha_atual) {
+    document.getElementById("senha").style.borderColor = "black";
+  }
   if (erros > 0) return;
 
   fetch("/api/alunos/", {
@@ -60,8 +73,8 @@ document.querySelector("form").addEventListener("submit", (e) => {
     if (res.ok) {
       window.location.href = "/conta";
     } else {
-      console.log(res);
-      console.log(await res.text());
+      // console.log(res);
+      // console.log(await res.text());
     }
   });
 });
