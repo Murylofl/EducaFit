@@ -98,7 +98,7 @@ server.post("/alunos", async (req, res) => {
     alunoSenha,
   } = req.body;
   const aluno = await db.aluno.create({
-    data: JSON.stringify({
+    data: {
       nomeCompleto: alunoNome,
       dataDeNasciment: alunoData,
       eMail: alunoEmail,
@@ -106,8 +106,10 @@ server.post("/alunos", async (req, res) => {
       frequencia: false,
       matricula: alunoMatricula,
       senha: alunoSenha,
-    }),
+    },
   });
+
+  res.json({ ok: "ok" });
 });
 
 server.put("/api/alunos", autenticar, async (req, res) => {
