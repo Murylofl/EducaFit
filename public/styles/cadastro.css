@@ -98,3 +98,9 @@ form {
 .disable {
   display: none;
 }
+input {
+  padding-left: 10px;
+}
+input::placeholder {
+  color: var(--ph-color);
+}

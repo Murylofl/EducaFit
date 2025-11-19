@@ -1,3 +1,4 @@
+lista_id = {};
 document.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
   let nome_completo = document.getElementById("nome-completo").value;
@@ -6,6 +7,16 @@ document.querySelector("form").addEventListener("submit", (e) => {
   let telefone = document.getElementById("telefone").value;
   let matricula = document.getElementById("matricula").value;
   let senha = document.getElementById("senha").value;
+  lista_seu = {
+    "nome-completo": nome_completo,
+    "e-mail": e_mail,
+    telefone: telefone,
+  };
+  lista_sua = {
+    "data-de-nascimento": data_de_nascimeno,
+    matricula: matricula,
+    senha: senha,
+  };
   console.log({
     nome_completo,
     data_de_nascimeno,
@@ -14,6 +25,48 @@ document.querySelector("form").addEventListener("submit", (e) => {
     senha,
     matricula,
   });
+  let erros = 0;
+  for (coisa in lista_seu) {
+    const valor = lista_seu[coisa];
+    if (valor == "") {
+      document.getElementById(coisa).value = "";
+      document.getElementById(coisa).style.borderColor = "red";
+      document.getElementById(coisa).style.color = "red";
+      document.getElementById(coisa).style.setProperty("--ph-color", "red");
+      if (coisa == "nome-completo") {
+        document.getElementById(coisa).attributes.placeholder.value =
+          "Digite seu nome completo";
+      } else {
+        document.getElementById(coisa).attributes.placeholder.value =
+          "Digite seu " + coisa + "!";
+      }
+      document.getElementById(coisa).value = "";
+
+      erros++;
+    } else {
+      document.getElementById(coisa).style.borderColor = "black";
+      document.getElementById(coisa).style.setProperty("--ph-color", "black");
+    }
+  }
+  for (coisa in lista_sua) {
+    const valor = lista_sua[coisa];
+    if (valor == "") {
+      document.getElementById(coisa).value = "";
+      document.getElementById(coisa).style.borderColor = "red";
+      document.getElementById(coisa).style.color = "red";
+      document.getElementById(coisa).style.setProperty("--ph-color", "red");
+      document.getElementById(coisa).attributes.placeholder.value =
+        "Digite sua " + coisa + "!";
+      document.getElementById(coisa).value = "";
+
+      erros++;
+    } else {
+      document.getElementById(coisa).style.borderColor = "black";
+      document.getElementById(coisa).style.color = "black";
+      document.getElementById(coisa).style.setProperty("--ph-color", "black");
+    }
+  }
+  if (erros > 0) return;
 
   fetch("/api/cadastro", {
     method: "post",
@@ -39,12 +92,3 @@ document.querySelector("form").addEventListener("submit", (e) => {
     }
   });
 });
-function closeModal() {
-  let modal = document.querySelector(".back-modal");
-  modal.classList.add("disable");
-}
-
-function showModal() {
-  let modal = document.querySelector(".back-modal");
-  modal.classList.remove("disable");
-}

@@ -1,8 +1,12 @@
 const token = sessionStorage.getItem("token");
-sessionStorage.removeItem("token");
-fetch("/api/alunos/", {
-  method: "DELETE",
-  headers: {
-    Authenticate: "Bearer " + token,
-  },
-});
+async function desabilitar() {
+  sessionStorage.removeItem("token");
+  await fetch("/alunos/", {
+    method: "DELETE",
+    headers: {
+      Authenticate: "Bearer " + token,
+    },
+  });
+
+  window.location.href = "/inicial";
+}
