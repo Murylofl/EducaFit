@@ -75,13 +75,14 @@ header {
   align-items: flex-end;
 }
 .conteudo1 {
-  padding-top: 30px;
+  padding-top: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
   justify-content: center;
   gap: 10px;
   height: 100px;
+  margin-bottom: 3px;
 }
 .texto {
   display: flex;

@@ -28,7 +28,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
   let erros = 0;
   for (coisa in lista_seu) {
     const valor = lista_seu[coisa];
-    if (valor == "") {
+    if (document.getElementById(coisa).value == "") {
       document.getElementById(coisa).value = "";
       document.getElementById(coisa).style.borderColor = "red";
       document.getElementById(coisa).style.color = "red";
@@ -50,7 +50,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
   }
   for (coisa in lista_sua) {
     const valor = lista_sua[coisa];
-    if (valor == "") {
+    if (document.getElementById(coisa).value == "") {
       document.getElementById(coisa).value = "";
       document.getElementById(coisa).style.borderColor = "red";
       document.getElementById(coisa).style.color = "red";
@@ -62,6 +62,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
       erros++;
     } else {
       document.getElementById(coisa).style.borderColor = "black";
+      console.log("black");
       document.getElementById(coisa).style.color = "black";
       document.getElementById(coisa).style.setProperty("--ph-color", "black");
     }

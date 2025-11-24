@@ -17,11 +17,31 @@ document.querySelector("form").addEventListener("submit", (e) => {
 
       window.location.href = "/principal";
     } else {
-      document.getElementById("senha").value = "";
-      document.getElementById("senha").style.borderColor = "red";
-      document.getElementById("senha").style.setProperty("--ph-color", "red");
-      document.getElementById("senha").attributes.placeholder.value =
-        "Informação inválida!";
+      objetos = { matricula, senha };
+      for (coisa in objetos) {
+        const valor = objetos[coisa];
+        if (valor == "") {
+          for (coisa_2 in objetos) {
+            document.getElementById(coisa_2).value = "";
+            document.getElementById(coisa_2).style.borderColor = "red";
+            document
+              .getElementById(coisa_2)
+              .style.setProperty("--ph-color", "red");
+            document.getElementById(coisa_2).attributes.placeholder.value =
+              "Há informações faltando";
+          }
+        } else {
+          for (coisa_2 in objetos) {
+            document.getElementById(coisa_2).value = "";
+            document.getElementById(coisa_2).style.borderColor = "red";
+            document
+              .getElementById(coisa_2)
+              .style.setProperty("--ph-color", "red");
+            document.getElementById(coisa_2).attributes.placeholder.value =
+              "Matrícula ou senha inválidas!";
+          }
+        }
+      }
     }
   });
 });
