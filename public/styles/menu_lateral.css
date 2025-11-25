@@ -64,7 +64,7 @@
   flex-direction: column;
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: -2px;
 }
 .informacao p {
   font-family: "Inter", sans-serif;
