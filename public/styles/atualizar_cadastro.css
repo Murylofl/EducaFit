@@ -79,7 +79,6 @@ input {
   width: 365px;
   height: 503px;
   border-radius: 12px;
-  background-color: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,6 +116,10 @@ input {
   fill: #1b326d;
   position: fixed;
   bottom: 0;
+  z-index: -100;
+}
+.svg img {
+  z-index: -100;
 }
 form {
   display: flex;
