@@ -144,20 +144,25 @@ server.post("/api/cadastro", async (req, res) => {
 
   const { nomeCompleto, dataDeNasciment, eMail, telefone, matricula, senha } =
     req.body;
-  const aluno = await db.aluno.create({
-    data: {
-      nomeCompleto: nomeCompleto,
-      dataDeNasciment: dataDeNasciment,
-      eMail: eMail,
-      telefone: telefone,
-      frequencia: false,
-      matricula: matricula,
-      senha: senha,
-    },
-  });
 
-  const token = jwt.sign({ id: aluno.id }, SECRET);
-  res.status(200).json({ token });
+  try {
+    const aluno = await db.aluno.create({
+      data: {
+        nomeCompleto: nomeCompleto,
+        dataDeNasciment: dataDeNasciment,
+        eMail: eMail,
+        telefone: telefone,
+        frequencia: false,
+        matricula: matricula,
+        senha: senha,
+      },
+    });
+
+    const token = jwt.sign({ id: aluno.id }, SECRET);
+    res.status(200).json({ token });
+  } catch (err) {
+    res.status(422).json({ err });
+  }
 });
 
 server.get("/api/aluno", autenticar, async (req, res) => {

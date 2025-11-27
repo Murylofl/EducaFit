@@ -27,7 +27,6 @@ document.querySelector("form").addEventListener("submit", (e) => {
   });
   let erros = 0;
   for (coisa in lista_seu) {
-    const valor = lista_seu[coisa];
     if (document.getElementById(coisa).value == "") {
       document.getElementById(coisa).value = "";
       document.getElementById(coisa).style.borderColor = "red";
@@ -49,7 +48,6 @@ document.querySelector("form").addEventListener("submit", (e) => {
     }
   }
   for (coisa in lista_sua) {
-    const valor = lista_sua[coisa];
     if (document.getElementById(coisa).value == "") {
       document.getElementById(coisa).value = "";
       document.getElementById(coisa).style.borderColor = "red";
@@ -83,13 +81,44 @@ document.querySelector("form").addEventListener("submit", (e) => {
       senha: senha,
     }),
   }).then(async (res) => {
+    if (res.status == 422) {
+      const mensagem = await res.json();
+      const erro = 0;
+      const erros_juntos = mensagem.err.meta.target.length >= 1;
+      if (mensagem.err.meta.target[0] == "matricula" || erros_juntos >= 1) {
+        document.getElementById("matricula").value = "";
+        document.getElementById("matricula").style.borderColor = "red";
+        document.getElementById("matricula").style.color = "red";
+        document
+          .getElementById("matricula")
+          .style.setProperty("--ph-color", "red");
+        document.getElementById("matricula").attributes.placeholder.value =
+          "Essa matrícula já existe!";
+        document.getElementById("matricula").value = "";
+
+        erro += 1;
+      }
+      if (mensagem.err.meta.target[0] == "telefone" || erros_juntos >= 1) {
+        document.getElementById("telefone").value = "";
+        document.getElementById("telefone").style.borderColor = "red";
+        document.getElementById("telefone").style.color = "red";
+        document
+          .getElementById("telefone")
+          .style.setProperty("--ph-color", "red");
+        document.getElementById("telefone").attributes.placeholder.value =
+          "Esse telefone já existe!";
+        document.getElementById("telefone").value = "";
+
+        erro += 1;
+      }
+      if (erro >= 1) {
+        return;
+      }
+    }
     if (res.status == 200) {
       const { token } = await res.json();
       sessionStorage.setItem("token", token);
       window.location.href = "/principal";
-    } else {
-      console.log(res);
-      console.log(await res.text());
     }
   });
 });
