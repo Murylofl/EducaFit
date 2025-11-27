@@ -84,36 +84,37 @@ document.querySelector("form").addEventListener("submit", (e) => {
     if (res.status == 422) {
       const mensagem = await res.json();
       const erro = 0;
-      const erros_juntos = mensagem.err.meta.target.length >= 1;
-      if (mensagem.err.meta.target[0] == "matricula" || erros_juntos >= 1) {
-        document.getElementById("matricula").value = "";
-        document.getElementById("matricula").style.borderColor = "red";
-        document.getElementById("matricula").style.color = "red";
-        document
-          .getElementById("matricula")
-          .style.setProperty("--ph-color", "red");
-        document.getElementById("matricula").attributes.placeholder.value =
-          "Essa matrícula já existe!";
-        document.getElementById("matricula").value = "";
+      mensagem.err.meta.target.map((err) => {
+        if (err == "matricula") {
+          document.getElementById("matricula").value = "";
+          document.getElementById("matricula").style.borderColor = "red";
+          document.getElementById("matricula").style.color = "red";
+          document
+            .getElementById("matricula")
+            .style.setProperty("--ph-color", "red");
+          document.getElementById("matricula").attributes.placeholder.value =
+            "Essa matrícula já existe!";
+          document.getElementById("matricula").value = "";
 
-        erro += 1;
-      }
-      if (mensagem.err.meta.target[0] == "telefone" || erros_juntos >= 1) {
-        document.getElementById("telefone").value = "";
-        document.getElementById("telefone").style.borderColor = "red";
-        document.getElementById("telefone").style.color = "red";
-        document
-          .getElementById("telefone")
-          .style.setProperty("--ph-color", "red");
-        document.getElementById("telefone").attributes.placeholder.value =
-          "Esse telefone já existe!";
-        document.getElementById("telefone").value = "";
+          erro += 1;
+        }
+        if (err == "telefone") {
+          document.getElementById("telefone").value = "";
+          document.getElementById("telefone").style.borderColor = "red";
+          document.getElementById("telefone").style.color = "red";
+          document
+            .getElementById("telefone")
+            .style.setProperty("--ph-color", "red");
+          document.getElementById("telefone").attributes.placeholder.value =
+            "Esse telefone já existe!";
+          document.getElementById("telefone").value = "";
 
-        erro += 1;
-      }
-      if (erro >= 1) {
-        return;
-      }
+          erro += 1;
+        }
+        if (erro >= 1) {
+          return;
+        }
+      });
     }
     if (res.status == 200) {
       const { token } = await res.json();
