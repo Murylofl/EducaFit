@@ -43,6 +43,7 @@
 .conteudo {
   background: rgb(255, 255, 255);
   gap: 10px;
+  padding-top: 17px;
   width: 100%;
   height: 664px;
   border-radius: 81px 81px 0px 0px;
