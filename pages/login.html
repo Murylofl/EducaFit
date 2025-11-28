@@ -20,15 +20,15 @@
       <header>
         <div class="cabecalho_padrao">
           <a href="/inicial" class="seta_padrao">
-            <img src="/images/arrow-left-solid-full.svg" alt="" />
+            <img src="/images/arrow-left-solid-full.svg" alt="erro" />
           </a>
           <div class="direita_padrao">
             <figure class="logos">
-              <img class="app" src="/images/image.png" alt="" />
+              <img class="app" src="/images/image.png" alt="erro" />
             </figure>
             <div id="linha"></div>
             <figure class="logos">
-              <img class="gym" src="/images/svg-logo-academia.svg" alt="" />
+              <img class="gym" src="/images/svg-logo-academia.svg" alt="erro" />
             </figure>
           </div>
         </div>
@@ -38,17 +38,22 @@
         <p class="plogin">LOGIN</p>
         <form action="">
           <input placeholder="Matrícula:" type="text" id="matricula" />
-          <div class="inputSenha">
+          <div id="inputSenha">
             <input placeholder="Senha:" type="password" id="senha" />
-            <button id="olho">
-              <img src="/images/eye-slash-regular-full.svg" alt="" />
-            </button>
+            <div onclick="mostrarSenha()" id="olho">
+              <img id="aberto" src="/images/eye-regular-full.svg" alt="erro" />
+              <img
+                id="fechado"
+                src="/images/eye-slash-regular-full.svg"
+                alt="erro"
+              />
+            </div>
           </div>
           <button class="login">LOGIN</button>
         </form>
       </main>
       <figure class="svg">
-        <img src="/images/Group 45.svg" alt="" />
+        <img src="/images/Group 45.svg" alt="erro" />
       </figure>
     </div>
   </body>

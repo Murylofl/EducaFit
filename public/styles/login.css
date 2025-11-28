@@ -114,11 +114,13 @@ input::placeholder {
   color: var(--ph-color);
 }
 #matricula {
+  height: 54px;
   width: 280px;
   border: 3px solid black;
   border-radius: 8px;
 }
-.inputSenha {
+#inputSenha {
+  color: var(--ph-color);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -127,16 +129,23 @@ input::placeholder {
   border-radius: 8px;
 }
 #senha {
-  width: 250px;
+  width: 241px;
   border: none;
 }
 #olho {
-  padding-right: 15px;
+  display: flex;
+  align-items: center;
   height: 48px;
-  width: 25px;
+  width: 33px;
   border: none;
   background: none;
 }
 #olho img {
   width: 25px;
+}
+#fechado {
+  display: none;
+}
+#aberto {
+  display: block;
 }
