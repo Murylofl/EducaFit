@@ -2,13 +2,24 @@
   display: flex;
   gap: 30px;
 }
-input {
+.inputs {
+  height: 54px;
   width: 280px;
+  border: 3px solid black;
+  border-radius: 8px;
+}
+
+input {
   height: 48px;
   border-radius: 9px;
   font-size: 20px;
+  padding-left: 10px;
 }
 
+input:focus {
+  border: none;
+  outline: none;
+}
 .pcadastro {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -100,9 +111,39 @@ form {
 }
 input {
   padding-left: 10px;
-  border: 3px solid ;
+  border: 3px solid;
   border-radius: 8px;
 }
 input::placeholder {
   color: var(--ph-color);
+}
+#inputSenha {
+  color: var(--ph-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 8px;
+}
+#senha {
+  width: 241px;
+  border: none;
+}
+#olho {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  width: 33px;
+  border: none;
+  background: none;
+}
+#olho img {
+  width: 25px;
+}
+#fechado {
+  display: none;
+}
+#aberto {
+  display: block;
 }

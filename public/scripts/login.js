@@ -1,6 +1,5 @@
 let borda = document.querySelector("#inputSenha");
 function mostrarSenha() {
-  let borda = document.querySelector("#inputSenha");
   let aberto = document.querySelector("#aberto");
   let fechado = document.querySelector("#fechado");
   let input = document.querySelector("#senha");

@@ -39,11 +39,17 @@
       <form action="">
         <p class="pcadastro">CADASTRO</p>
         <div>
-          <input placeholder="Nome Completo:" type="text" id="nome-completo" />
+          <input
+            class="inputs"
+            placeholder="Nome Completo:"
+            type="text"
+            id="nome-completo"
+          />
         </div>
 
         <div>
           <input
+            class="inputs"
             placeholder="Data de nascimento:"
             type="date"
             id="data-de-nascimento"
@@ -51,17 +57,35 @@
         </div>
 
         <div>
-          <input placeholder="E-mail:" type="text" id="e-mail" />
+          <input class="inputs" placeholder="E-mail:" type="text" id="e-mail" />
         </div>
         <div>
-          <input placeholder="Telefone:" type="text" id="telefone" />
+          <input
+            class="inputs"
+            placeholder="Telefone:"
+            type="text"
+            id="telefone"
+          />
         </div>
 
         <div>
-          <input placeholder="Matrícula:" type="number" id="matricula" />
+          <input
+            class="inputs"
+            placeholder="Matrícula:"
+            type="number"
+            id="matricula"
+          />
         </div>
-        <div>
+        <div id="inputSenha">
           <input placeholder="Senha:" type="password" id="senha" />
+          <div onclick="mostrarSenha()" id="olho">
+            <img id="aberto" src="/images/eye-regular-full.svg" alt="erro" />
+            <img
+              id="fechado"
+              src="/images/eye-slash-regular-full.svg"
+              alt="erro"
+            />
+          </div>
         </div>
 
         <button class="cadastrarse">CADASTRAR-SE</button>

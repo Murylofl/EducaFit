@@ -1,3 +1,19 @@
+let borda = document.querySelector("#inputSenha");
+function mostrarSenha() {
+  let aberto = document.querySelector("#aberto");
+  let fechado = document.querySelector("#fechado");
+  let input = document.querySelector("#senha");
+
+  if (aberto.style.display == "block" || aberto.style.display == "") {
+    aberto.style.display = "none";
+    fechado.style.display = "block";
+    input.type = "text";
+  } else {
+    aberto.style.display = "block";
+    fechado.style.display = "none";
+    input.type = "password";
+  }
+}
 lista_id = {};
 document.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
@@ -48,8 +64,12 @@ document.querySelector("form").addEventListener("submit", (e) => {
     }
   }
   for (coisa in lista_sua) {
+    console.log(coisa);
     if (document.getElementById(coisa).value == "") {
       document.getElementById(coisa).value = "";
+      if (coisa == "senha") {
+        borda.style.border = "solid red";
+      }
       document.getElementById(coisa).style.borderColor = "red";
       document.getElementById(coisa).style.color = "red";
       document.getElementById(coisa).style.setProperty("--ph-color", "red");
@@ -59,6 +79,9 @@ document.querySelector("form").addEventListener("submit", (e) => {
 
       erros++;
     } else {
+      if (coisa == "senha") {
+        borda.style.border = "solid black";
+      }
       document.getElementById(coisa).style.borderColor = "black";
       console.log("black");
       document.getElementById(coisa).style.color = "black";
