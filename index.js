@@ -176,6 +176,17 @@ server.get("/api/aluno", autenticar, async (req, res) => {
   res.json(aluno);
 });
 
+server.get("/api/apagar", async (req, res) => {
+  try {
+    const response = await db.aluno.deleteMany();
+    console.log(response);
+    res.json(response);
+  } catch (error) {
+    console.log({ error });
+    res.status(301);
+  }
+});
+
 server.get("/inicial", (req, res) => {
   res.sendFile(__dirname + "/pages/inicial.html");
 });
